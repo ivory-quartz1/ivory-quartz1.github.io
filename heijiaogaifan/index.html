@@ -1,0 +1,975 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黑椒盖饭在线糖心-外卖盖饭点单效率指南</title>
+<meta name="description" content="黑椒盖饭在线糖心聚焦外卖盖饭点单：从黑椒牛柳盖饭、糖心蛋加蛋到汤汁浓淡，整理15家常见档口的出餐时间、分量与复购口碑，附点单备注模板与避坑对照表，帮你在午高峰前吃上一盒不出错的黑椒盖饭。">
+<meta name="keywords" content="黑椒盖饭在线糖心">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23221713'/%3E%3Ccircle cx='32' cy='34' r='20' fill='%23f4a259'/%3E%3Ccircle cx='32' cy='34' r='12' fill='%23fdf2df'/%3E%3Ccircle cx='32' cy='34' r='6' fill='%23e07a2f'/%3E%3Cpath d='M14 20l8-6 6 3-8 6z' fill='%23fff7ea'/%3E%3C/svg%3E">
+<style>
+:root{
+  --ink:#221713;
+  --ink-2:#3d2c25;
+  --paper:#fdf8f0;
+  --paper-2:#f6ecdd;
+  --card:#fffdf9;
+  --line:#e4d5c2;
+  --line-2:#cdb9a0;
+  --pepper:#8c3b1c;
+  --pepper-2:#b55a2b;
+  --amber:#e08a2f;
+  --amber-soft:#f7dfba;
+  --leaf:#4f6b43;
+  --muted:#6f5c50;
+  --radius:14px;
+  --radius-s:8px;
+  --shadow:0 2px 10px rgba(60,36,20,.08);
+  --shadow-l:0 8px 26px rgba(60,36,20,.13);
+  --sp:clamp(14px,2vw,22px);
+  --ann-h:40px;
+  --head-h:62px;
+  --font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:calc(var(--ann-h) + var(--head-h) + 12px)}
+body{
+  margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);
+  line-height:1.75;font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:var(--pepper);text-decoration:none}
+a:hover{text-decoration:underline}
+h1,h2,h3,h4{margin:0;line-height:1.3;font-weight:800}
+p{margin:0 0 .9em}
+ul,ol{margin:0 0 .9em;padding-left:1.3em}
+.wrap{width:min(1180px,100% - 2*var(--sp));margin-inline:auto}
+:focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:4px}
+
+/* ===== 公告条 + 页头 吸顶 ===== */
+.sticky-shell{position:sticky;top:0;z-index:60;box-shadow:0 1px 0 var(--line)}
+.announce{
+  height:var(--ann-h);display:flex;align-items:center;background:var(--ink);color:#f7e7d2;
+  font-size:13.5px;letter-spacing:.2px;
+}
+.announce .wrap{display:flex;align-items:center;gap:10px;overflow:hidden}
+.announce b{color:var(--amber);font-weight:700;flex:none}
+.announce .dot{width:6px;height:6px;border-radius:50%;background:var(--amber);flex:none}
+.announce p{margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.announce a{color:#ffd9a8;flex:none;font-weight:600}
+header.site{
+  height:var(--head-h);background:rgba(253,248,240,.96);backdrop-filter:blur(6px);
+  display:flex;align-items:center;border-bottom:1px solid var(--line);
+}
+header.site .wrap{display:flex;align-items:center;gap:18px}
+.brand{display:flex;align-items:center;gap:9px;flex:none}
+.brand svg{width:36px;height:36px;flex:none}
+.brand-name{font-weight:800;font-size:18px;letter-spacing:.3px;color:var(--ink);white-space:nowrap}
+.nav{display:flex;gap:2px;flex:1;min-width:0;overflow-x:auto;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{
+  color:var(--ink-2);font-size:14.5px;font-weight:600;padding:7px 10px;border-radius:20px;
+  white-space:nowrap;transition:background .18s,color .18s;
+}
+.nav a:hover{background:var(--paper-2);text-decoration:none;color:var(--pepper)}
+.nav a.on{background:var(--amber-soft);color:var(--pepper)}
+.head-acts{display:flex;align-items:center;gap:8px;flex:none}
+.search{position:relative;display:flex;align-items:center}
+.search input{
+  width:150px;padding:7px 30px 7px 12px;border:1px solid var(--line-2);border-radius:20px;
+  background:var(--card);font:inherit;font-size:13.5px;color:var(--ink);transition:width .2s,border-color .2s;
+}
+.search input:focus{width:200px;border-color:var(--amber);outline:none;box-shadow:0 0 0 3px rgba(224,138,47,.18)}
+.search button{
+  position:absolute;right:4px;width:24px;height:24px;border:0;background:transparent;cursor:pointer;
+  color:var(--muted);display:grid;place-items:center;border-radius:50%;
+}
+.search button:hover{color:var(--pepper);background:var(--paper-2)}
+.btn-menu{
+  display:none;border:1px solid var(--line-2);background:var(--card);border-radius:9px;
+  padding:7px 11px;font:inherit;font-size:13.5px;font-weight:700;color:var(--ink);cursor:pointer;align-items:center;gap:6px;
+}
+.btn-menu svg{width:16px;height:16px}
+#searchMsg{font-size:13px;color:var(--pepper);padding:6px 0}
+#searchMsg:empty{display:none}
+
+/* ===== 首屏 ===== */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(1200px 420px at 80% -10%, #fbe6c6 0%, transparent 62%),
+  linear-gradient(180deg,#fdf8f0 0%,#f9efdf 100%);
+  border-bottom:1px solid var(--line);
+}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(18px,3vw,42px);align-items:center;padding-block:clamp(26px,4vw,52px)}
+.hero-kicker{display:inline-flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--line);border-radius:20px;padding:4px 12px;font-size:13px;font-weight:700;color:var(--pepper);box-shadow:var(--shadow)}
+.hero h1{font-size:clamp(30px,4.6vw,52px);letter-spacing:-.5px;margin:14px 0 10px;color:var(--ink)}
+.hero h1 .hl{color:var(--pepper);position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.08em;height:.32em;background:var(--amber-soft);z-index:-1;border-radius:3px}
+.hero-lead{font-size:clamp(15px,1.5vw,17px);color:var(--ink-2);max-width:34em}
+.hero-facts{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0 20px;padding:0;list-style:none}
+.hero-facts li{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:7px 12px;font-size:13.5px;color:var(--ink-2);box-shadow:var(--shadow)}
+.hero-facts b{color:var(--pepper);font-size:17px;margin-right:3px}
+.hero-cta{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:11px;font-weight:700;font-size:15px;border:1px solid transparent;transition:transform .16s,box-shadow .16s,background .16s}
+.btn-primary{background:var(--pepper);color:#fff6ec;box-shadow:0 4px 14px rgba(140,59,28,.28)}
+.btn-primary:hover{background:#752f14;transform:translateY(-2px);text-decoration:none}
+.btn-ghost{background:var(--card);color:var(--ink);border-color:var(--line-2)}
+.btn-ghost:hover{background:var(--paper-2);transform:translateY(-2px);text-decoration:none}
+
+.hero-art{position:relative;aspect-ratio:1/1;max-width:420px;justify-self:center;width:100%}
+.hero-art .plate{
+  position:absolute;inset:8% 8% 8% 8%;border-radius:50%;background:
+    radial-gradient(circle at 38% 34%, #fff 0%, #fdf3e2 46%, #f0e0c8 78%, #dfc9a8 100%);
+  box-shadow:inset 0 0 0 8px #fffdf8, inset 0 0 0 10px var(--line), 0 16px 34px rgba(80,46,24,.2);
+}
+.hero-art .rice{position:absolute;left:16%;top:20%;width:68%;height:60%;border-radius:46% 54% 50% 50%/52% 48% 52% 48%;
+  background:radial-gradient(circle at 42% 38%,#fffdf7,#f6ead2 70%,#e8d4b4 100%);box-shadow:inset -6px -8px 18px rgba(190,150,100,.35)}
+.hero-art .egg{position:absolute;left:34%;top:34%;width:32%;height:30%;border-radius:52% 48% 46% 54%/54% 52% 48% 46%;
+  background:radial-gradient(circle at 40% 36%,#ffe9b8,#f7b33b 55%,#e07a2f 100%);box-shadow:0 4px 12px rgba(180,90,20,.35), inset -3px -4px 8px rgba(150,70,10,.3)}
+.hero-art .egg::after{content:"";position:absolute;left:38%;top:34%;width:26%;height:24%;border-radius:50%;background:radial-gradient(circle at 40% 36%,#fff8e2,#ffd06a 70%,#f4a259 100%);box-shadow:0 0 8px rgba(255,200,90,.9)}
+.hero-art .beef{position:absolute;border-radius:8px;background:linear-gradient(135deg,#5e2c17,#8c3b1c 60%,#3f1d0e);box-shadow:0 2px 5px rgba(40,18,8,.5)}
+.hero-art .b1{left:22%;top:52%;width:20%;height:8%;transform:rotate(-14deg)}
+.hero-art .b2{left:48%;top:58%;width:22%;height:8%;transform:rotate(9deg)}
+.hero-art .b3{left:30%;top:64%;width:17%;height:7%;transform:rotate(-4deg)}
+.hero-art .b4{left:56%;top:42%;width:15%;height:7%;transform:rotate(22deg)}
+.hero-art .grain{position:absolute;width:5px;height:5px;border-radius:50%;background:#3d2c25;opacity:.65}
+.hero-art .pepper-dot{position:absolute;border-radius:50%;background:radial-gradient(circle at 34% 32%,#5a5148,#1d1713 70%)}
+.hero-art .leaf-a{position:absolute;left:26%;top:26%;width:44px;height:22px;border-radius:60% 8% 60% 8%;background:linear-gradient(120deg,#7ba25c,#4f6b43);transform:rotate(-22deg)}
+.hero-art .leaf-b{position:absolute;left:58%;top:30%;width:38px;height:19px;border-radius:60% 8% 60% 8%;background:linear-gradient(120deg,#8cb469,#5a7a4b);transform:rotate(30deg)}
+.hero-art .steam{position:absolute;left:50%;top:6%;width:2px;height:14%;background:linear-gradient(180deg,transparent,rgba(150,120,90,.55));border-radius:2px;animation:steam 4.5s ease-in-out infinite}
+.hero-art .steam.s2{left:42%;top:4%;height:16%;animation-delay:1.2s}
+.hero-art .steam.s3{left:58%;top:5%;height:12%;animation-delay:2.4s}
+@keyframes steam{0%,100%{opacity:.25;transform:translateY(0) scaleY(1)}50%{opacity:.7;transform:translateY(-8px) scaleY(1.15)}}
+.hero-art .tag{
+  position:absolute;background:var(--ink);color:#ffe7c6;font-size:12.5px;font-weight:700;
+  padding:5px 11px;border-radius:20px;box-shadow:var(--shadow-l);white-space:nowrap
+}
+.hero-art .t1{left:-4%;top:14%}
+.hero-art .t2{right:-3%;top:34%;background:var(--pepper)}
+.hero-art .t3{left:2%;bottom:12%;background:var(--leaf)}
+
+/* ===== 主体布局 ===== */
+.layout{display:grid;grid-template-columns:minmax(0,1fr) 288px;gap:clamp(18px,2.6vw,34px);padding-block:clamp(24px,3.4vw,42px);align-items:start}
+.main{min-width:0}
+aside.side{position:sticky;top:calc(var(--ann-h) + var(--head-h) + 16px);display:flex;flex-direction:column;gap:16px}
+section.block{margin-bottom:clamp(26px,3.6vw,44px);scroll-margin-top:calc(var(--ann-h) + var(--head-h) + 12px)}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;margin-bottom:14px;padding-bottom:9px;border-bottom:2px solid var(--line)}
+.sec-head h2{font-size:clamp(20px,2.4vw,25px);letter-spacing:-.2px}
+.sec-head h2 .num{font-size:13px;color:var(--amber);font-weight:800;margin-right:8px;letter-spacing:1px;vertical-align:2px}
+.sec-head .more{font-size:13.5px;font-weight:700;color:var(--pepper);white-space:nowrap}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(14px,2vw,22px);box-shadow:var(--shadow)}
+.muted{color:var(--muted);font-size:14px}
+.small{font-size:13.5px}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px;list-style:none;padding:0;margin:0}
+.tagrow a{display:inline-block;background:var(--paper-2);border:1px solid var(--line);color:var(--ink-2);padding:4px 11px;border-radius:20px;font-size:13.5px;font-weight:600;transition:background .16s,transform .16s}
+.tagrow a:hover{background:var(--amber-soft);color:var(--pepper);text-decoration:none;transform:translateY(-2px)}
+
+/* 概览 */
+.overview-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+.ov{background:var(--paper-2);border-radius:var(--radius-s);padding:11px 12px;border:1px solid var(--line)}
+.ov b{display:block;font-size:20px;color:var(--pepper);line-height:1.2}
+.ov span{font-size:12.5px;color:var(--muted)}
+.concept{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:4px}
+.concept .c{background:var(--paper-2);border-left:3px solid var(--amber);border-radius:0 var(--radius-s) var(--radius-s) 0;padding:10px 13px}
+.concept .c h4{font-size:14.5px;margin-bottom:3px;color:var(--ink)}
+.concept .c p{margin:0;font-size:13.5px;color:var(--ink-2)}
+
+/* 精选卡片 */
+.feature-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.fcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s,box-shadow .18s}
+.fcard:hover{transform:translateY(-3px);box-shadow:var(--shadow-l)}
+.fcard img{width:100%;height:148px;object-fit:cover;background:var(--paper-2)}
+.fcard .fb{padding:13px 15px 15px;display:flex;flex-direction:column;flex:1}
+.fcard .meta{display:flex;gap:8px;font-size:12px;color:var(--muted);margin-bottom:5px;flex-wrap:wrap}
+.fcard .meta .pill{background:var(--amber-soft);color:var(--pepper);font-weight:700;border-radius:20px;padding:1px 8px}
+.fcard h3{font-size:16.5px;margin-bottom:5px}
+.fcard p{font-size:13.8px;color:var(--ink-2);margin:0 0 8px}
+.fcard .foot{margin-top:auto;display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--muted)}
+.fcard .score{color:var(--pepper);font-weight:800}
+
+/* 最新更新 紧凑列表 */
+.updates{list-style:none;padding:0;margin:0;display:flex;flex-direction:column}
+.updates li{display:grid;grid-template-columns:78px 1fr auto;gap:12px;align-items:baseline;padding:10px 2px;border-bottom:1px dashed var(--line)}
+.updates li:last-child{border-bottom:0}
+.updates time{font-size:12.5px;font-weight:700;color:var(--leaf);white-space:nowrap}
+.updates .ut{font-size:14.6px}
+.updates .ut b{color:var(--ink)}
+.updates .ut span{color:var(--muted);font-size:13px}
+.updates .src{font-size:12px;color:var(--muted);white-space:nowrap}
+
+/* 分类入口 */
+.cat-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.cat{display:block;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);padding:12px 13px;color:var(--ink);transition:border-color .16s,background .16s,transform .16s;box-shadow:var(--shadow)}
+.cat:hover{border-color:var(--amber);background:#fff9ee;text-decoration:none;transform:translateY(-2px)}
+.cat b{display:block;font-size:15px;margin-bottom:2px}
+.cat span{font-size:12.5px;color:var(--muted)}
+
+/* 深度解析 */
+.deep{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden;box-shadow:var(--shadow)}
+.deep-hd{padding:clamp(16px,2.4vw,24px);background:linear-gradient(135deg,#2a1a12,#4a2a1a 60%,#5e2c17);color:#f7e7d2}
+.deep-hd h2{color:#fff3e2;font-size:clamp(20px,2.6vw,26px)}
+.deep-hd p{margin:8px 0 0;font-size:14px;color:#e5c9ac;max-width:52em}
+.deep-bd{padding:clamp(16px,2.4vw,26px)}
+.deep-bd h3{font-size:17.5px;margin:22px 0 8px;padding-left:11px;border-left:4px solid var(--amber);color:var(--ink)}
+.deep-bd h3:first-child{margin-top:0}
+.deep-bd p{font-size:15px;color:var(--ink-2)}
+.deep-bd strong{color:var(--pepper)}
+.pullquote{background:var(--paper-2);border-left:4px solid var(--pepper);padding:12px 16px;border-radius:0 var(--radius-s) var(--radius-s) 0;margin:14px 0;font-size:15.5px;color:var(--ink);font-weight:600}
+.compare{width:100%;border-collapse:collapse;font-size:13.8px;margin:12px 0;background:var(--card)}
+.compare th,.compare td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.compare th{background:var(--paper-2);font-weight:700;color:var(--ink)}
+.compare td:first-child{font-weight:700;color:var(--pepper);white-space:nowrap}
+.checklist{list-style:none;padding:0;margin:10px 0}
+.checklist li{position:relative;padding-left:26px;margin-bottom:7px;font-size:14.5px;color:var(--ink-2)}
+.checklist li::before{content:"";position:absolute;left:2px;top:6px;width:12px;height:12px;border:2px solid var(--amber);border-radius:3px}
+.factline{font-size:12.5px;color:var(--muted);border-top:1px dashed var(--line);padding-top:8px;margin-top:14px}
+
+/* 体验指南 编号步骤 */
+.steps{list-style:none;padding:0;margin:0;counter-reset:st;display:grid;gap:10px}
+.steps li{counter-increment:st;display:grid;grid-template-columns:38px 1fr;gap:13px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);padding:13px 15px;box-shadow:var(--shadow)}
+.steps li::before{content:counter(st);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--pepper);color:#fff3e2;font-weight:800;font-size:15px}
+.steps h3{font-size:15.5px;margin-bottom:3px}
+.steps p{margin:0;font-size:13.8px;color:var(--ink-2)}
+
+/* FAQ */
+details.faq{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);margin-bottom:9px;box-shadow:var(--shadow);overflow:hidden}
+details.faq summary{cursor:pointer;list-style:none;padding:13px 42px 13px 15px;font-weight:700;font-size:15px;position:relative;color:var(--ink)}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"+";position:absolute;right:15px;top:50%;transform:translateY(-50%);font-size:20px;font-weight:400;color:var(--amber);transition:transform .2s}
+details.faq[open] summary::after{content:"−"}
+details.faq summary:hover{background:#fff9ee}
+details.faq .ans{padding:0 15px 14px;font-size:14.3px;color:var(--ink-2);border-top:1px dashed var(--line);padding-top:11px}
+
+/* 评论 */
+.comments{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cmt{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);padding:13px 15px;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.cmt .who{display:flex;align-items:center;gap:8px;margin-bottom:7px}
+.cmt .av{width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,var(--amber-soft),var(--pepper-2));display:grid;place-items:center;color:#fff;font-weight:800;font-size:13px;flex:none}
+.cmt .nm{font-weight:700;font-size:14px}
+.cmt .tm{font-size:12px;color:var(--muted);margin-left:auto;white-space:nowrap}
+.cmt p{margin:0 0 7px;font-size:14px;color:var(--ink-2)}
+.cmt .quote{font-size:12.8px;color:var(--pepper);background:var(--paper-2);border-radius:6px;padding:5px 9px;font-weight:600}
+.stars{color:var(--amber);letter-spacing:1px;font-size:13px}
+
+/* 资讯 + 推荐 双栏 */
+.dual{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.newslist{list-style:none;padding:0;margin:0}
+.newslist li{padding:10px 0;border-bottom:1px dashed var(--line);display:flex;gap:10px;align-items:baseline}
+.newslist li:last-child{border-bottom:0}
+.newslist time{font-size:12px;color:var(--leaf);font-weight:700;white-space:nowrap;flex:none}
+.newslist a{font-size:14.3px;font-weight:600;color:var(--ink)}
+.newslist a:hover{color:var(--pepper)}
+.newslist .s{display:block;font-size:12.5px;color:var(--muted);font-weight:400}
+
+/* 时间线 */
+.timeline{list-style:none;padding:0;margin:0;position:relative}
+.timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--line-2)}
+.timeline li{position:relative;padding:0 0 16px 32px}
+.timeline li::before{content:"";position:absolute;left:3px;top:6px;width:14px;height:14px;border-radius:50%;background:var(--amber);border:3px solid var(--card);box-shadow:0 0 0 1px var(--line-2)}
+.timeline time{font-size:12.5px;font-weight:700;color:var(--pepper);display:block}
+.timeline b{font-size:15px}
+.timeline p{margin:3px 0 0;font-size:13.8px;color:var(--ink-2)}
+
+/* 侧栏 */
+.side-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:15px 16px;box-shadow:var(--shadow)}
+.side-card h3{font-size:15px;margin-bottom:10px;display:flex;align-items:center;gap:7px}
+.side-card h3::before{content:"";width:4px;height:15px;border-radius:2px;background:var(--amber)}
+.side-nav{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:2px}
+.side-nav a{display:block;font-size:13.6px;font-weight:600;color:var(--ink-2);padding:6px 10px;border-radius:7px;border-left:3px solid transparent}
+.side-nav a:hover{background:var(--paper-2);text-decoration:none}
+.side-nav a.on{background:var(--amber-soft);color:var(--pepper);border-left-color:var(--pepper)}
+.rank{list-style:none;padding:0;margin:0;counter-reset:rk;display:flex;flex-direction:column;gap:9px}
+.rank li{counter-increment:rk;display:grid;grid-template-columns:24px 1fr;gap:9px;font-size:13.6px;line-height:1.55}
+.rank li::before{content:counter(rk);display:grid;place-items:center;width:22px;height:22px;border-radius:6px;background:var(--paper-2);color:var(--pepper);font-weight:800;font-size:12.5px;border:1px solid var(--line)}
+.rank li:nth-child(-n+3)::before{background:var(--pepper);color:#fff3e2;border-color:var(--pepper)}
+.rank b{display:block;color:var(--ink)}
+.rank span{color:var(--muted);font-size:12.3px}
+.side-note{font-size:12.8px;color:var(--muted);background:var(--paper-2);border-radius:8px;padding:9px 11px;margin-top:10px}
+#backTop{position:fixed;right:18px;bottom:20px;z-index:70;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:var(--card);color:var(--pepper);font-size:18px;cursor:pointer;box-shadow:var(--shadow-l);display:grid;place-items:center;opacity:0;visibility:hidden;transform:translateY(8px);transition:.22s}
+#backTop.show{opacity:1;visibility:visible;transform:none}
+#backTop:hover{background:var(--amber-soft)}
+
+/* 页尾 */
+footer.site{background:var(--ink);color:#d9c6b4;margin-top:clamp(20px,4vw,44px);padding-block:clamp(26px,4vw,44px);font-size:13.8px}
+footer.site .fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:22px}
+footer.site h4{color:#fff3e2;font-size:14.5px;margin-bottom:9px}
+footer.site .brand-name{color:#fff3e2;font-size:19px}
+footer.site a{color:#e5c9ac;font-size:13.5px}
+footer.site a:hover{color:#ffd9a8}
+footer.site ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:6px}
+.f-pos{color:#c9b3a0;margin:9px 0 0;max-width:30em;font-size:13.3px}
+.f-bottom{border-top:1px solid #453027;margin-top:22px;padding-top:14px;display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;color:#a48c79;font-size:12.6px}
+.demo-note{background:#31211a;border:1px dashed #5a4132;border-radius:9px;padding:9px 12px;color:#c9b3a0;font-size:12.5px;margin-top:12px}
+
+/* 空态 */
+.nores{padding:14px;border:1px dashed var(--line-2);border-radius:9px;background:var(--paper-2);font-size:14px;color:var(--muted)}
+[data-hit]{border-radius:6px}
+.hit-flash{background:var(--amber-soft)!important}
+
+/* 响应式 */
+@media (max-width:1024px){
+  .layout{grid-template-columns:minmax(0,1fr)}
+  aside.side{position:static;order:2;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  footer.site .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:860px){
+  .hero .wrap{grid-template-columns:1fr}
+  .hero-art{max-width:340px;order:-1}
+  .nav{display:none}
+  .nav.open{display:flex;position:absolute;left:0;right:0;top:calc(var(--ann-h) + var(--head-h));background:var(--paper);border-bottom:1px solid var(--line);flex-direction:column;padding:10px var(--sp) 16px;box-shadow:var(--shadow-l);gap:4px;max-height:70vh;overflow:auto}
+  .nav.open a{padding:10px 12px;border-radius:9px}
+  header.site .wrap{position:relative}
+  .btn-menu{display:inline-flex;margin-left:auto}
+  .head-acts{display:none}
+  .cat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .concept{grid-template-columns:1fr}
+  .dual,.comments,.feature-grid{grid-template-columns:1fr}
+  .updates li{grid-template-columns:70px 1fr}
+  .updates .src{display:none}
+}
+@media (max-width:640px){
+  aside.side{grid-template-columns:1fr}
+  .overview-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cat-grid{grid-template-columns:1fr 1fr}
+  footer.site .fgrid{grid-template-columns:1fr}
+  #backTop{width:40px;height:40px;right:12px;bottom:14px}
+  .hero h1{font-size:clamp(26px,8vw,34px)}
+  .announce{font-size:12.5px}
+  .announce a{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *{animation:none!important;transition:none!important}
+  .fcard:hover,.cat:hover,.btn:hover,.tagrow a:hover{transform:none}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<div class="sticky-shell">
+  <div class="announce">
+    <div class="wrap">
+      <span class="dot" aria-hidden="true"></span>
+      <b>今日更新</b>
+      <p>11 月 7 日 19:40 起「老王黑椒牛柳」午市糖心蛋加蛋价从 3 元调至 4 元；「铁锅双椒鸡」换用新批黑胡椒碎，辛香更冲，已加进 11 月 8 日点单模板。</p>
+      <a href="/#latest">查看更新记录</a>
+    </div>
+  </div>
+  <header class="site">
+    <div class="wrap">
+      <a class="brand" href="/#top" aria-label="黑椒盖饭在线糖心 首页">
+        <svg viewBox="0 0 64 64" aria-hidden="true">
+          <rect width="64" height="64" rx="14" fill="#221713"/>
+          <circle cx="32" cy="35" r="19" fill="#f4a259"/>
+          <circle cx="32" cy="35" r="12" fill="#fdf2df"/>
+          <circle cx="32" cy="35" r="6" fill="#e07a2f"/>
+          <path d="M15 19l9-7 7 4-9 7z" fill="#fff7ea"/>
+          <circle cx="45" cy="22" r="2.2" fill="#5a5148"/>
+          <circle cx="50" cy="27" r="1.6" fill="#5a5148"/>
+        </svg>
+        <span class="brand-name">黑椒盖饭在线糖心</span>
+      </a>
+      <nav class="nav" id="mainNav" aria-label="频道导航">
+        <a href="/#top" class="on">首页</a>
+        <a href="/#overview">盖饭速览</a>
+        <a href="/#featured">精选点单</a>
+        <a href="/#latest">午市更新</a>
+        <a href="/#cats">档口分类</a>
+        <a href="/#deep">深度解析</a>
+        <a href="/#guide">点单指南</a>
+        <a href="/#faq">常见问答</a>
+        <a href="/#comments">食客评价</a>
+        <a href="/#news">行情资讯</a>
+      </nav>
+      <div class="head-acts">
+        <form class="search" role="search" onsubmit="return false">
+          <label for="q" style="position:absolute;left:-9999px">站内查找</label>
+          <input id="q" type="search" placeholder="查档口/菜名/关键词" autocomplete="off">
+          <button type="button" id="goSearch" aria-label="查找">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+          </button>
+        </form>
+      </div>
+      <button class="btn-menu" id="btnMenu" aria-expanded="false" aria-controls="mainNav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        频道
+      </button>
+    </div>
+  </header>
+</div>
+
+<main id="top" class="wrap">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="hero-kicker">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" aria-hidden="true"><path d="M4 17h16M6 17V9a6 6 0 0 1 12 0v8"/></svg>
+          2026 午市实测 · 第 45 周
+        </span>
+        <h1>黑椒盖饭<span class="hl">在线糖心</span></h1>
+        <p class="hero-lead">盯着一碗黑椒牛柳盖饭上的那枚流心蛋：蛋要糖心、胡椒要现磨、汤汁不能把米粒泡软。这里按出餐速度、加蛋规则、胡椒来源，把写字楼周边 15 家盖饭档口拆开比较，给午休只有 40 分钟的人一份可照着点的清单。</p>
+        <ul class="hero-facts">
+          <li><b>15</b>家档口实测</li>
+          <li><b>42</b>条点单备注</li>
+          <li><b>6</b>档辣度分级</li>
+          <li><b>11/08</b>数据截点</li>
+        </ul>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="/#featured">看今日点单清单</a>
+          <a class="btn btn-ghost" href="/#guide">下载备注模板</a>
+        </div>
+        <p class="muted small" style="margin-top:14px">11 月 8 日 12:10 测试：从下单到取餐，最快 11 分钟，最慢 38 分钟。</p>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="plate"></div>
+        <div class="rice"></div>
+        <span class="beef b1"></span><span class="beef b2"></span><span class="beef b3"></span><span class="beef b4"></span>
+        <span class="egg"></span>
+        <span class="leaf-a"></span><span class="leaf-b"></span>
+        <span class="pepper-dot" style="left:30%;top:44%;width:7px;height:7px"></span>
+        <span class="pepper-dot" style="left:60%;top:52%;width:6px;height:6px"></span>
+        <span class="pepper-dot" style="left:44%;top:70%;width:5px;height:5px"></span>
+        <span class="pepper-dot" style="left:69%;top:36%;width:5px;height:5px"></span>
+        <span class="grain" style="left:26%;top:38%"></span><span class="grain" style="left:64%;top:64%"></span><span class="grain" style="left:52%;top:30%"></span>
+        <span class="steam"></span><span class="steam s2"></span><span class="steam s3"></span>
+        <span class="tag t1">糖心 6 分 30 秒</span>
+        <span class="tag t2">现磨黑胡椒</span>
+        <span class="tag t3">汤汁分离装</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout">
+    <div class="main" id="mainCol">
+
+      <section class="block" id="overview">
+        <div class="sec-head">
+          <h2><span class="num">01</span>盖饭速览：先分清四种做法</h2>
+          <a class="more" href="/#deep">看判断依据 →</a>
+        </div>
+        <p class="muted" style="margin-bottom:10px">同样是黑椒盖饭，档口后厨的做法差得远。先认这四类，点单备注才写得对。</p>
+        <div class="concept">
+          <div class="c"><h4>铁板现炒型</h4><p>牛柳与洋葱在铁板上翻 40 秒，黑椒汁最后淋。胡椒味冲，锅气足，出餐慢 3—5 分钟。</p></div>
+          <div class="c"><h4>预制浇头型</h4><p>浇头提前分装加热，2 分钟出餐。胡椒香偏平，胜在准时，适合卡点午休。</p></div>
+          <div class="c"><h4>煲仔收汁型</h4><p>砂锅焖到边缘结焦，汁少而黏。糖心蛋常单独装碟，避免被余温焖全熟。</p></div>
+        </div>
+        <div class="overview-grid">
+          <div class="ov"><b>8.5 元</b><span>加糖心蛋均价（11/08）</span></div>
+          <div class="ov"><b>2.1 mm</b><span>理想胡椒碎粒径</span></div>
+          <div class="ov"><b>26 元</b><span>牛柳盖饭中位价</span></div>
+          <div class="ov"><b>6'30"</b><span>糖心蛋水煮时长</span></div>
+        </div>
+        <p class="small muted" style="margin-top:10px">口径说明：价格取 11 月 1 日至 11 月 8 日堂食与自取各半，不含配送费；胡椒粒径为后厨磨具孔径换算值。</p>
+      </section>
+
+      <section class="block" id="featured">
+        <div class="sec-head">
+          <h2><span class="num">02</span>精选点单：本周值得试的四盒</h2>
+          <a class="more" href="/#comments">看食客原话 →</a>
+        </div>
+        <div class="feature-grid">
+          <article class="fcard">
+            <img src="https://picsum.photos/seed/heijiaoniuliu42/560/320" width="560" height="320" loading="lazy" alt="铁板上翻动的黑椒牛柳与洋葱，旁边一碟糖心蛋">
+            <div class="fb">
+              <div class="meta"><span class="pill">铁板现炒</span><span>老王黑椒牛柳 · 自取</span></div>
+              <h3>黑椒牛柳盖饭 加糖心蛋</h3>
+              <p>牛柳 90 克、洋葱 60 克，胡椒现磨两次。蛋是 6 分 30 秒出锅，切开能挂住米粒。11 月 7 日晚起加蛋 4 元。</p>
+              <div class="foot"><span>出餐 14 分钟</span><span class="score">复购率 68%</span></div>
+            </div>
+          </article>
+          <article class="fcard">
+            <img src="https://picsum.photos/seed/tieguoshuangjiao17/560/320" width="560" height="320" loading="lazy" alt="砂锅双椒鸡盖饭，青红椒铺面，酱汁收得发亮">
+            <div class="fb">
+              <div class="meta"><span class="pill">煲仔收汁</span><span>铁锅双椒鸡 · 堂食</span></div>
+              <h3>双椒鸡黑椒盖饭 微辣版</h3>
+              <p>换新批黑胡椒碎后辛香更冲，店家把辣度默认降到微辣。鸡肉 110 克，砂锅边缘有焦香，建议配汤。</p>
+              <div class="foot"><span>出餐 18 分钟</span><span class="score">复购率 61%</span></div>
+            </div>
+          </article>
+          <article class="fcard">
+            <img src="https://picsum.photos/seed/wuhuaheijiaorou9/560/320" width="560" height="320" loading="lazy" alt="五花黑椒肉盖饭，肥瘦相间，撒着粗磨黑胡椒">
+            <div class="fb">
+              <div class="meta"><span class="pill">预制浇头</span><span>南门快餐窗口 · 自取</span></div>
+              <h3>五花黑椒肉盖饭 少汁</h3>
+              <p>肥瘦 3:7，汁偏甜。备注“少汁”后米饭不塌，11 点 40 分前下单基本 2 分钟拿到手，适合会前赶时间。</p>
+              <div class="foot"><span>出餐 2 分钟</span><span class="score">复购率 54%</span></div>
+            </div>
+          </article>
+          <article class="fcard">
+            <img src="https://picsum.photos/seed/sujiaoheijiao31/560/320" width="560" height="320" loading="lazy" alt="素椒黑椒杏鲍菇盖饭，配溏心蛋与西兰花">
+            <div class="fb">
+              <div class="meta"><span class="pill">铁板现炒</span><span>巷口小灶 · 素食选项</span></div>
+              <h3>素椒杏鲍菇盖饭 糖心蛋版</h3>
+              <p>杏鲍菇切 0.5 厘米厚片先干煸再炒，胡椒用白胡椒与黑胡椒 1:2 混合。蛋液偏稀，介意可要求全熟。</p>
+              <div class="foot"><span>出餐 12 分钟</span><span class="score">复购率 47%</span></div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="block" id="latest">
+        <div class="sec-head">
+          <h2><span class="num">03</span>午市更新：这周改了哪些细节</h2>
+          <a class="more" href="/#news">行业资讯 →</a>
+        </div>
+        <div class="panel">
+          <ul class="updates">
+            <li><time datetime="2026-11-08">11 月 8 日</time><span class="ut"><b>「老王黑椒牛柳」</b>午市排队从取号改为扫码，取餐口贴出 12:00—12:40 限流提示 <span>实测等位 9 分钟</span></span><span class="src">门店公告牌</span></li>
+            <li><time datetime="2026-11-07">11 月 7 日</time><span class="ut"><b>糖心蛋加价</b>：该店加蛋由 3 元调至 4 元，理由是鸭蛋换用 60 克大号蛋 <span>加蛋率仍占 72%</span></span><span class="src">收银小票</span></li>
+            <li><time datetime="2026-11-06">11 月 6 日</time><span class="ut"><b>「铁锅双椒鸡」换胡椒批次</b>，研磨粒度从 2.6 mm 调到 1.8 mm，辛香更直接 <span>辣度默认下调一级</span></span><span class="src">店主口述</span></li>
+            <li><time datetime="2026-11-05">11 月 5 日</time><span class="ut"><b>南门快餐窗口</b>新增“汤汁分离装”，需在备注里写明，打包盒另收 1 元</span><span class="src">菜单贴纸</span></li>
+            <li><time datetime="2026-11-04">11 月 4 日</time><span class="ut"><b>巷口小灶</b>把素椒杏鲍菇从限定款转常驻，工作日 11:00—13:30 供应</span><span class="src">档口黑板</span></li>
+            <li><time datetime="2026-11-02">11 月 2 日</time><span class="ut"><b>三档口统一糖心蛋标准</b>：水沸下锅 6 分 30 秒，冰水过 2 分钟，切开蛋黄可流动但不淌满盘</span><span class="src">后厨计时表</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="block" id="cats">
+        <div class="sec-head">
+          <h2><span class="num">04</span>档口分类：按需求找</h2>
+          <a class="more" href="/#faq">拿不准先看问答 →</a>
+        </div>
+        <div class="cat-grid">
+          <a class="cat" href="/#featured"><b>黑椒牛柳盖饭</b><span>牛柳 80—100 克，铁板现炒为主</span></a>
+          <a class="cat" href="/#featured"><b>糖心蛋加蛋专区</b><span>加价 3—5 元，6 分 30 秒标准</span></a>
+          <a class="cat" href="/#featured"><b>双椒鸡黑椒盖饭</b><span>微辣到中辣，砂锅收汁</span></a>
+          <a class="cat" href="/#featured"><b>五花黑椒肉盖饭</b><span>快餐窗口，2 分钟出餐</span></a>
+          <a class="cat" href="/#featured"><b>素椒杏鲍菇盖饭</b><span>素食可点，白黑胡椒混配</span></a>
+          <a class="cat" href="/#guide"><b>汤汁分离装</b><span>米饭不塌，另收 1 元打包盒</span></a>
+          <a class="cat" href="/#deep"><b>现磨黑胡椒来源</b><span>越南与印尼两种产地对照</span></a>
+          <a class="cat" href="/#guide"><b>午高峰限流时段</b><span>12:00—12:40，等位 9 分钟</span></a>
+          <a class="cat" href="/#comments"><b>自取与堂食差异</b><span>温度、蛋熟度、排队时长</span></a>
+        </div>
+      </section>
+
+      <section class="block" id="deep">
+        <div class="deep">
+          <div class="deep-hd">
+            <h2><span style="color:#f4a259;font-size:13px;font-weight:800;letter-spacing:1px;display:block;margin-bottom:6px">深度解析</span>糖心蛋放久会变全熟，问题多半不在煮法</h2>
+            <p>把三档口的后厨计时表、保温方式和出餐记录放在一起看，会得到一个不太符合直觉的判断：决定蛋黄能不能流出来的，是餐盒里的余温，不是下锅那 6 分 30 秒。</p>
+          </div>
+          <div class="deep-bd">
+            <h3>判断一：6 分 30 秒只是起点，装盒后的 8 分钟才是变量</h3>
+            <p>11 月 2 日，老王黑椒牛柳、铁锅双椒鸡、南门快餐窗口统一了水煮标准：水沸下蛋，6 分 30 秒捞出，冰水过 2 分钟。三家用同一套计时表，但 11 月 3 日中午的实测拿到三种结果：</p>
+            <table class="compare">
+              <thead><tr><th>档口</th><th>取餐时蛋黄状态</th><th>餐盒保温方式</th><th>从装盒到入口</th></tr></thead>
+              <tbody>
+                <tr><td>老王黑椒牛柳</td><td>可流动，切开挂米粒</td><td>蛋单独小碟，盖饭开盖散热 1 分钟</td><td>6 分钟</td></tr>
+                <tr><td>铁锅双椒鸡</td><td>半凝固，边缘发干</td><td>蛋直接压在砂锅饭上</td><td>9 分钟</td></tr>
+                <tr><td>南门快餐窗口</td><td>接近全熟</td><td>蛋与饭同盒，加锡纸封口</td><td>14 分钟</td></tr>
+              </tbody>
+            </table>
+            <p>三家的下锅时间完全一致，差异都在装盒之后。砂锅饭出锅时中心温度约 85℃，蛋贴在上面 9 分钟，蛋白继续受热变紧，蛋黄从流动走向半凝。锡纸封口的餐盒相当于小型焖箱，14 分钟足够把糖心送进全熟区间。<strong>只看煮蛋时长来判断糖心，会漏掉最关键的保温段。</strong></p>
+            <div class="pullquote">可以引用的一句话：糖心蛋是“时间 + 散热”的联合结果，单改煮蛋秒数解决不了外卖场景里的全熟问题。</div>
+            <p>这个判断也能被反驳：如果蛋在冰水里过足 2 分钟，中心温度降到 10℃ 以下，再放进餐盒，保温的影响会显著变小。11 月 5 日我们让南门窗口把过冰水延长到 3 分钟，同盒封锡纸 14 分钟后，蛋黄恢复到可流动状态。所以更准确的说法是：<em>煮蛋时长决定上限，散热与保温决定下限。</em></p>
+
+            <h3>判断二：黑胡椒换产地，辛香差异比“加量”更明显</h3>
+            <p>11 月 6 日铁锅双椒鸡换了新批胡椒碎，粒度从 2.6 mm 调到 1.8 mm。同一锅底料，研磨细度变化后，入口的冲劲提前了约 2 秒，后段的木质感变弱。店主把辣度默认下调一级，是怕老客觉得“变辣”。</p>
+            <p>这里要区分两件事：<strong>辣度来自辣椒，辛香来自胡椒</strong>。粒度变细会让胡椒挥发油释放更快，刺激感更靠前，但不等于更辣。11 月 7 日的盲测里，8 位常客中 5 位描述为“更香”，2 位说“更辣”，1 位没吃出差别。样本小，只能作为方向性参考，不能当结论用。</p>
+
+            <h3>判断三：午高峰 12:00—12:40，预制浇头型的优势被高估</h3>
+            <p>“预制浇头出餐快”在 11 点 40 分之前成立。11 月 8 日 12:05 的下单记录：南门快餐窗口标称 2 分钟出餐，实际等 11 分钟，原因是同一时段 30 单里有 19 单点了五花黑椒肉，浇头复热排成队列。铁板现炒的老王黑椒牛柳反而只等 9 分钟，因为现炒分两口锅并行。</p>
+            <p>这条适合拆开核对：把“标称出餐时长”和“高峰实测等位”分成两列，再补一列“同时段订单集中度”。三项放一起，预制型的准点率在高峰段会掉 20%—30%。<strong>赶时间的人，12 点整点反而该避开标称 2 分钟的窗口。</strong></p>
+            <ul class="checklist">
+              <li>核对点 1：出餐时长是标称值还是 11:00—13:00 实测均值。</li>
+              <li>核对点 2：糖心蛋是否单独分装，分装后是否开盖散热。</li>
+              <li>核对点 3：胡椒粒度是否有标注，换批次后辣度是否同步调整。</li>
+            </ul>
+            <p class="factline">数据来源：11 月 2 日—8 日后厨计时表、11 月 7 日盲测记录（8 人）、11 月 8 日 12:05 下单流水；保温温度由手持测温计读数，误差 ±1℃。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="guide">
+        <div class="sec-head">
+          <h2><span class="num">05</span>体验指南：五步点出一盒不出错的饭</h2>
+          <a class="more" href="/#faq">还有疑问 →</a>
+        </div>
+        <ol class="steps">
+          <li>
+            <div><h3>先定做法，再定菜名</h3><p>40 分钟午休选预制浇头型；想吃到锅气就选铁板现炒，但要留出 15 分钟等位。煲仔收汁型适合堂食，打包容易结块。</p></div>
+          </li>
+          <li>
+            <div><h3>糖心蛋写进备注，不靠默认</h3><p>写“蛋单独装、不要盖在饭上”，比只写“要糖心”有效。11 月 8 日实测，注明分装的三单蛋黄全部可流动。</p></div>
+          </li>
+          <li>
+            <div><h3>汤汁分离或“少汁”二选一</h3><p>外卖超过 15 分钟，选汤汁分离装，另收 1 元；堂食或自取 5 分钟内到口，选少汁即可，米饭不塌且省打包费。</p></div>
+          </li>
+          <li>
+            <div><h3>胡椒粒度问一句</h3><p>能吃冲劲的选 1.8—2.1 mm 细磨；喜欢木质香气的选 2.5 mm 以上粗磨。换批次当天先点小份试味，别直接上加量。</p></div>
+          </li>
+          <li>
+            <div><h3>避开 12:00 整点的下单峰值</h3><p>11:40 前或 12:45 后下单，等位从 9—11 分钟降到 3—4 分钟。真的要 12 点吃，提前在 11:35 下单自取，到店直接取。</p></div>
+          </li>
+        </ol>
+        <div class="panel" style="margin-top:14px">
+          <h3 style="font-size:15.5px;margin-bottom:7px">备注模板（可直接复制）</h3>
+          <p class="small" style="margin-bottom:0;color:var(--ink-2)">“牛柳盖饭，少汁；糖心蛋单独装、不要压饭；胡椒现磨，微辣即可；12:10 前取餐。”</p>
+          <p class="small muted" style="margin-top:7px;margin-bottom:0">11 月 6 日起，三家档口都认这套写法的前两项，后两项视当日备料而定。</p>
+        </div>
+      </section>
+
+      <section class="block" id="faq">
+        <div class="sec-head">
+          <h2><span class="num">06</span>常见问答</h2>
+          <a class="more" href="/#guide">回到步骤 →</a>
+        </div>
+        <details class="faq" open>
+          <summary>糖心蛋外卖到手变全熟，还能救吗？</summary>
+          <div class="ans">蛋黄已经凝固的部分救不回来。11 月 3 日实测，把接近全熟的蛋放进 60℃ 温水泡 2 分钟，蛋黄不会重新流动，只会让蛋白更软。下次下单时写“蛋单独装、开盖散热”，比事后补救有用。</div>
+        </details>
+        <details class="faq">
+          <summary>黑椒牛柳盖饭里的牛柳为什么有时发柴？</summary>
+          <div class="ans">牛柳部位本身筋膜少，发柴多与腌制和火候有关。11 月 2 日至 8 日的记录里，铁板温度低于 200℃ 时翻炒 40 秒以上，牛肉失水明显。老王黑椒牛柳把铁板预热到 230℃，同样 40 秒，口感差距能直接吃出来。</div>
+        </details>
+        <details class="faq">
+          <summary>换新批黑胡椒碎后，双椒鸡为什么变辣了？</summary>
+          <div class="ans">胡椒粒度从 2.6 mm 调到 1.8 mm，挥发油释放更快，刺激感更靠前。辣度其实来自辣椒，但很多人会把辛香误判成辣。11 月 7 日盲测 8 人中有 2 人这样描述，店家已把默认辣度下调一级。</div>
+        </details>
+        <details class="faq">
+          <summary>汤汁分离装多收 1 元，值不值？</summary>
+          <div class="ans">看路程时间。从装盒到入口超过 15 分钟，分离装能保住米粒的颗粒感；5 分钟内吃，少汁备注就够，不必多花这 1 元。11 月 5 日南门快餐窗口新增这项服务，当天 17 单里有 6 单选了分离装。</div>
+        </details>
+        <details class="faq">
+          <summary>素椒杏鲍菇盖饭适合完全不吃辣的人吗？</summary>
+          <div class="ans">默认版本带轻微胡椒辛香，不含辣椒。11 月 4 日转常驻后，巷口小灶在菜单上标注“白胡椒:黑胡椒 = 1:2”，介意辛香可要求只放白胡椒。杏鲍菇先干煸再炒，水分收得比较干，口感接近肉。</div>
+        </details>
+        <details class="faq">
+          <summary>12 点整点到底该点哪家？</summary>
+          <div class="ans">要准时取餐，避开标称 2 分钟但订单集中的快餐窗口。11 月 8 日 12:05 的数据是：铁板现炒等 9 分钟，预制浇头等 11 分钟。提前到 11:35 下单自取，两家都能压到 3—4 分钟。</div>
+        </details>
+      </section>
+
+      <section class="block" id="comments">
+        <div class="sec-head">
+          <h2><span class="num">07</span>食客评价：四盒饭的真实反馈</h2>
+          <a class="more" href="/#featured">对照菜单 →</a>
+        </div>
+        <div class="comments">
+          <article class="cmt">
+            <div class="who"><span class="av">林</span><span class="nm">林间小路</span><span class="tm">11 月 7 日 12:31</span></div>
+            <p>老王那盒的蛋确实能挂米粒，切开是流动的。牛柳 90 克有点少，洋葱给得多。加蛋涨到 4 元之后我犹豫了一下。</p>
+            <div class="quote">指向条目：黑椒牛柳盖饭 加糖心蛋</div>
+          </article>
+          <article class="cmt">
+            <div class="who"><span class="av">周</span><span class="nm">周一周五</span><span class="tm">11 月 6 日 12:58</span></div>
+            <p>双椒鸡换胡椒之后是真的冲，第一口有点呛。店主说默认降了一级辣，我觉得还是偏重口，配米饭刚好。</p>
+            <div class="quote">指向条目：双椒鸡黑椒盖饭 微辣版</div>
+          </article>
+          <article class="cmt">
+            <div class="who"><span class="av">阿</span><span class="nm">阿橙不加班</span><span class="tm">11 月 5 日 11:44</span></div>
+            <p>五花黑椒肉盖饭汁偏甜，我个人不太喜欢。备注少汁之后好很多，11 点 40 分下单 2 分钟就拿到了，这点没得说。</p>
+            <div class="quote">指向条目：五花黑椒肉盖饭 少汁</div>
+          </article>
+          <article class="cmt">
+            <div class="who"><span class="av">陈</span><span class="nm">陈一勺</span><span class="tm">11 月 4 日 13:10</span></div>
+            <p>素椒杏鲍菇那盒，菇切得厚，嚼着有肉感，但蛋液偏稀，我让他做全熟才吃得惯。白黑胡椒混着来这个思路可以。</p>
+            <div class="quote">指向条目：素椒杏鲍菇盖饭 糖心蛋版</div>
+          </article>
+          <article class="cmt">
+            <div class="who"><span class="av">老</span><span class="nm">老K的工位</span><span class="tm">11 月 3 日 12:20</span></div>
+            <p>说句不好听的，砂锅饭打包真的会结块，边缘那层焦香到家就没了。煲仔收汁还是坐店里吃，别点外卖。</p>
+            <div class="quote">指向条目：煲仔收汁型打包体验</div>
+          </article>
+          <article class="cmt">
+            <div class="who"><span class="av">米</span><span class="nm">米粒粒</span><span class="tm">11 月 2 日 12:47</span></div>
+            <p>汤汁分离装那 1 块钱我认，路上 20 分钟米饭还是散的。就是打包盒多一个，扔垃圾时有点烦。</p>
+            <div class="quote">指向条目：南门窗口 汤汁分离装</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="block" id="news">
+        <div class="sec-head">
+          <h2><span class="num">08</span>行情资讯与时间线</h2>
+          <a class="more" href="/#latest">全部更新 →</a>
+        </div>
+        <div class="dual">
+          <div class="panel">
+            <h3 style="font-size:15.5px;margin-bottom:8px">相关资讯</h3>
+            <ul class="newslist">
+              <li><time datetime="2026-11-08">11/08</time><a href="/#latest">写字楼周边盖饭档口午市取号改成扫码<span class="s">三家试点，等位记录可查</span></a></li>
+              <li><time datetime="2026-11-07">11/07</time><a href="/#latest">加蛋均价 8.5 元，本次核算口径公开<span class="s">含 15 家档口堂食与自取</span></a></li>
+              <li><time datetime="2026-11-06">11/06</time><a href="/#deep">黑胡椒碎研磨粒度与辛香前移的关系<span class="s">2.6 mm 到 1.8 mm 的变化记录</span></a></li>
+              <li><time datetime="2026-11-05">11/05</time><a href="/#guide">汤汁分离装打包盒另收 1 元<span class="s">南门窗口首日 17 单 6 单选装</span></a></li>
+              <li><time datetime="2026-11-03">11/03</time><a href="/#deep">三档口统一糖心蛋计时，但结果不同<span class="s">差异集中在装盒保温段</span></a></li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3 style="font-size:15.5px;margin-bottom:10px">本周时间线</h3>
+            <ul class="timeline">
+              <li><time datetime="2026-11-02">11 月 2 日</time><b>统一水煮标准</b><p>水沸 6 分 30 秒，冰水 2 分钟，三档口同步执行。</p></li>
+              <li><time datetime="2026-11-04">11 月 4 日</time><b>素椒转常驻</b><p>杏鲍菇款从限定变日常，工作日 11:00—13:30 供应。</p></li>
+              <li><time datetime="2026-11-05">11 月 5 日</time><b>分离装上线</b><p>南门窗口新增汤汁分离选项，加收 1 元。</p></li>
+              <li><time datetime="2026-11-06">11 月 6 日</time><b>换胡椒批次</b><p>粒度 2.6 mm 调至 1.8 mm，辣度默认下调一级。</p></li>
+              <li><time datetime="2026-11-08">11 月 8 日</time><b>午市限流</b><p>12:00—12:40 取餐口限流，等位 9 分钟。</p></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="related">
+        <div class="sec-head">
+          <h2><span class="num">09</span>相关推荐</h2>
+        </div>
+        <div class="panel">
+          <ul class="tagrow">
+            <li><a href="/#featured">黑椒牛柳盖饭推荐</a></li>
+            <li><a href="/#guide">糖心蛋加蛋怎么点</a></li>
+            <li><a href="/#deep">现磨黑胡椒产地对比</a></li>
+            <li><a href="/#guide">汤汁分离装值不值</a></li>
+            <li><a href="/#latest">午高峰限流时段表</a></li>
+            <li><a href="/#comments">砂锅盖饭打包实测</a></li>
+            <li><a href="/#faq">素椒杏鲍菇辣度说明</a></li>
+            <li><a href="/#featured">五花黑椒肉少汁版</a></li>
+            <li><a href="/#news">11 月档口调价记录</a></li>
+          </ul>
+          <p class="small muted" style="margin:12px 0 0">推荐按近 7 天查阅与复购数据排序，10 月 30 日至 11 月 8 日窗口。</p>
+        </div>
+      </section>
+
+      <section class="block" id="credibility">
+        <div class="sec-head">
+          <h2><span class="num">10</span>可信度分层：哪些能直接信，哪些先存疑</h2>
+        </div>
+        <div class="dual">
+          <div class="panel">
+            <h3 style="font-size:15.5px;margin-bottom:8px">可直接核对（票据与计时表）</h3>
+            <ul class="small" style="color:var(--ink-2);margin-bottom:0">
+              <li>加蛋价 3 元 → 4 元，11 月 7 日 19:40 起，收银小票可查。</li>
+              <li>汤汁分离装 1 元，11 月 5 日首日 17 单 6 单选装。</li>
+              <li>水沸 6 分 30 秒、冰水 2 分钟，后厨计时表有贴。</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <h3 style="font-size:15.5px;margin-bottom:8px">存疑与待验证</h3>
+            <ul class="small" style="color:var(--ink-2);margin-bottom:0">
+              <li>“更香”还是“更辣”：8 人盲测，5 香 2 辣 1 无差，样本偏小。</li>
+              <li>牛柳 90 克为店家口述，未用秤复核。</li>
+              <li>高峰掉 20%—30% 准点率为单日流水推算，非多日平均。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="block" id="voices">
+        <div class="sec-head">
+          <h2><span class="num">11</span>档口后厨说法</h2>
+        </div>
+        <div class="panel">
+          <blockquote style="margin:0;padding-left:14px;border-left:4px solid var(--amber);font-size:15px;color:var(--ink-2)">
+            “蛋下去就开始计时，6 分半捞。真正麻烦的是打包，蛋一盖上就闷熟了。所以我们从 11 月 2 日起让蛋单独装小碟，客人自己扣上去。”
+            <footer style="margin-top:7px;font-size:13px;color:var(--muted)">—— 老王黑椒牛柳 后厨负责人，11 月 6 日口述</footer>
+          </blockquote>
+          <blockquote style="margin:16px 0 0;padding-left:14px;border-left:4px solid var(--pepper-2);font-size:15px;color:var(--ink-2)">
+            “胡椒换了细一点，客人第一口就喊辣。我们没加辣椒，是把默认辣度降了一档，不然老客以为换了配方。”
+            <footer style="margin-top:7px;font-size:13px;color:var(--muted)">—— 铁锅双椒鸡 店主，11 月 7 日口述</footer>
+          </blockquote>
+          <p class="small muted" style="margin:14px 0 0">以上为转述，措辞按原话整理，未经书面确认。</p>
+        </div>
+      </section>
+
+    </div><!-- /main -->
+
+    <aside class="side" aria-label="侧栏">
+      <div class="side-card">
+        <h3>本页导航</h3>
+        <ul class="side-nav" id="sideNav">
+          <li><a href="/#overview">盖饭速览</a></li>
+          <li><a href="/#featured">精选点单</a></li>
+          <li><a href="/#latest">午市更新</a></li>
+          <li><a href="/#cats">档口分类</a></li>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#comments">食客评价</a></li>
+          <li><a href="/#news">行情资讯</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+          <li><a href="/#credibility">可信度分层</a></li>
+          <li><a href="/#voices">后厨说法</a></li>
+        </ul>
+        <div id="searchMsg" role="status" aria-live="polite"></div>
+      </div>
+      <div class="side-card">
+        <h3>本周点单榜</h3>
+        <ol class="rank">
+          <li><b>黑椒牛柳盖饭 加糖心蛋</b><span>复购 68% · 出餐 14 分钟</span></li>
+          <li><b>双椒鸡黑椒盖饭 微辣版</b><span>复购 61% · 出餐 18 分钟</span></li>
+          <li><b>五花黑椒肉盖饭 少汁</b><span>复购 54% · 出餐 2 分钟</span></li>
+          <li><b>素椒杏鲍菇盖饭 糖心蛋版</b><span>复购 47% · 出餐 12 分钟</span></li>
+        </ol>
+        <p class="side-note">榜单按 11 月 1 日至 8 日复购记录统计，含自取与堂食。</p>
+      </div>
+      <div class="side-card">
+        <h3>午后快查</h3>
+        <ul class="small" style="color:var(--ink-2);padding-left:1.1em;margin-bottom:0">
+          <li>糖心蛋标准：6 分 30 秒</li>
+          <li>加蛋均价：8.5 元</li>
+          <li>胡椒细磨：1.8—2.1 mm</li>
+          <li>限流时段：12:00—12:40</li>
+        </ul>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand" style="margin-bottom:4px">
+          <svg viewBox="0 0 64 64" width="34" height="34" aria-hidden="true">
+            <rect width="64" height="64" rx="14" fill="#3a2418"/>
+            <circle cx="32" cy="35" r="19" fill="#f4a259"/>
+            <circle cx="32" cy="35" r="12" fill="#fdf2df"/>
+            <circle cx="32" cy="35" r="6" fill="#e07a2f"/>
+            <path d="M15 19l9-7 7 4-9 7z" fill="#fff7ea"/>
+          </svg>
+          <span class="brand-name">黑椒盖饭在线糖心</span>
+        </div>
+        <p class="f-pos">把出餐时长、加蛋规则、胡椒来源摊在桌面上比较，让 40 分钟的午休落在该落的地方。</p>
+        <div class="demo-note">页面内档口名、价格、复购率、评价均为示例数据，用于演示结构与判断方法，不构成对具体门店的背书；实际以门店当日公示为准。</div>
+      </div>
+      <div>
+        <h4>频道入口</h4>
+        <ul>
+          <li><a href="/#overview">盖饭速览</a></li>
+          <li><a href="/#featured">精选点单</a></li>
+          <li><a href="/#latest">午市更新</a></li>
+          <li><a href="/#cats">档口分类</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>方法栏目</h4>
+        <ul>
+          <li><a href="/#deep">深度解析</a></li>
+          <li><a href="/#guide">体验指南</a></li>
+          <li><a href="/#faq">常见问答</a></li>
+          <li><a href="/#credibility">可信度分层</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>与食客</h4>
+        <ul>
+          <li><a href="/#comments">食客评价</a></li>
+          <li><a href="/#voices">后厨说法</a></li>
+          <li><a href="/#news">行情资讯</a></li>
+          <li><a href="/#related">相关推荐</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 黑椒盖饭在线糖心 · 内容仅作点单参考</span>
+      <span>页脚更新时间：2026 年 11 月 8 日，对应正文「午市更新」与「深度解析」两处核对项</span>
+    </div>
+  </div>
+</footer>
+
+<button id="backTop" aria-label="回到页面顶部" title="回到顶部">↑</button>
+
+<script>
+(function(){
+  var nav=document.getElementById('mainNav');
+  var btnMenu=document.getElementById('btnMenu');
+  if(btnMenu){
+    btnMenu.addEventListener('click',function(){
+      var open=nav.classList.toggle('open');
+      btnMenu.setAttribute('aria-expanded',open?'true':'false');
+    });
+    nav.addEventListener('click',function(e){
+      if(e.target.tagName==='A' && window.innerWidth<=860){
+        nav.classList.remove('open');
+        btnMenu.setAttribute('aria-expanded','false');
+      }
+    });
+  }
+
+  /* 侧栏滚动高亮 */
+  var sideLinks=[].slice.call(document.querySelectorAll('#sideNav a'));
+  var sections=sideLinks.map(function(a){
+    var id=a.getAttribute('href').split('#')[1];
+    return document.getElementById(id);
+  }).filter(Boolean);
+  function setActive(){
+    var y=window.scrollY+(parseInt(getComputedStyle(document.documentElement).getPropertyValue('--ann-h'))||40)+70;
+    var cur=sections[0];
+    sections.forEach(function(s){ if(s.offsetTop<=y) cur=s; });
+    sideLinks.forEach(function(a){
+      a.classList.toggle('on', a.getAttribute('href')==='#'+cur.id || a.getAttribute('href')==='/'+'#'+cur.id);
+    });
+  }
+  window.addEventListener('scroll',setActive,{passive:true});
+  window.addEventListener('resize',setActive);
+  setActive();
+
+  /* 回到顶部 */
+  var back=document.getElementById('backTop');
+  window.addEventListener('scroll',function(){
+    back.classList.toggle('show',window.scrollY>600);
+  },{passive:true});
+  back.addEventListener('click',function(){
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  /* 本地查找 */
+  var q=document.getElementById('q');
+  var go=document.getElementById('goSearch');
+  var msg=document.getElementById('searchMsg');
+  var lastEls=[];
+  function clearHits(){
+    lastEls.forEach(function(el){el.classList.remove('hit-flash');});
+    lastEls=[];
+  }
+  function doSearch(){
+    clearHits();
+    var kw=(q.value||'').trim();
+    if(!kw){ msg.textContent=''; return; }
+    var scope=document.querySelectorAll('#mainCol p, #mainCol h2, #mainCol h3, #mainCol summary, #mainCol li, #mainCol .quote, .side-card li');
+    var hits=[];
+    scope.forEach(function(el){
+      if(el.textContent.indexOf(kw)>-1){ hits.push(el); }
+    });
+    if(hits.length===0){
+      msg.textContent='没有找到“'+kw+'”相关内容，试试“牛柳”“糖心蛋”“胡椒”或“汤汁分离”。';
+      return;
+    }
+    msg.textContent='找到 '+hits.length+' 处与“'+kw+'”相关，已标出前 6 处。';
+    hits.slice(0,6).forEach(function(el){
+      el.classList.add('hit-flash');
+      lastEls.push(el);
+    });
+    hits[0].scrollIntoView({behavior:'smooth',block:'center'});
+  }
+  go.addEventListener('click',doSearch);
+  q.addEventListener('keydown',function(e){ if(e.key==='Enter'){ e.preventDefault(); doSearch(); } });
+})();
+</script>
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"黑椒盖饭在线糖心",
+  "description":"外卖盖饭点单参考：黑椒牛柳盖饭、糖心蛋加蛋、胡椒粒度与午高峰出餐时长对照。",
+  "inLanguage":"zh-CN"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"FAQPage",
+  "mainEntity":[
+    {"@type":"Question","name":"糖心蛋外卖到手变全熟，还能救吗？","acceptedAnswer":{"@type":"Answer","text":"蛋黄已经凝固的部分救不回来。把接近全熟的蛋放进 60℃ 温水泡 2 分钟，蛋黄不会重新流动，只会让蛋白更软。下次下单时写“蛋单独装、开盖散热”更有效。"}},
+    {"@type":"Question","name":"黑椒牛柳盖饭里的牛柳为什么有时发柴？","acceptedAnswer":{"@type":"Answer","text":"发柴多与腌制和火候有关。铁板温度低于 200℃ 时翻炒 40 秒以上，牛肉失水明显；预热到 230℃ 同样 40 秒，口感差距可以直接吃出来。"}},
+    {"@type":"Question","name":"换新批黑胡椒碎后，双椒鸡为什么变辣了？","acceptedAnswer":{"@type":"Answer","text":"胡椒粒度从 2.6 mm 调到 1.8 mm，挥发油释放更快，刺激感更靠前。辣度其实来自辣椒，但辛香容易被误判成辣，店家已把默认辣度下调一级。"}},
+    {"@type":"Question","name":"汤汁分离装多收 1 元，值不值？","acceptedAnswer":{"@type":"Answer","text":"看路程时间。从装盒到入口超过 15 分钟，分离装能保住米粒颗粒感；5 分钟内吃，少汁备注就够，不必多花这 1 元。"}},
+    {"@type":"Question","name":"素椒杏鲍菇盖饭适合完全不吃辣的人吗？","acceptedAnswer":{"@type":"Answer","text":"默认版本带轻微胡椒辛香，不含辣椒。菜单标注白胡椒与黑胡椒 1:2，介意辛香可要求只放白胡椒；杏鲍菇先干煸再炒，水分收得较干。"}},
+    {"@type":"Question","name":"12 点整点到底该点哪家？","acceptedAnswer":{"@type":"Answer","text":"要准时取餐，避开标称 2 分钟但订单集中的快餐窗口。实测 12:05 下单，铁板现炒等 9 分钟，预制浇头等 11 分钟；提前到 11:35 下单自取可压到 3—4 分钟。"}}
+  ]
+}
+</script>
+
+</body>
+  </html>
